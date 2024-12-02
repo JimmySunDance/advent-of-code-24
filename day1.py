@@ -1,6 +1,7 @@
 # Day one of the Advent of Code 2024
 # 
 # Sort 2 lists - find the sum of the differences
+# Multiply the value in list 1, byt the number of times it occurs in list 2
 #
 
 def similarity_difference_sum(list_a, list_b):
