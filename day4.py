@@ -2,6 +2,10 @@
 # 
 # Find how many time the string "XMAS" exists in the grid. It can exist in all 
 # orientations.
+# Find instances of an X mad of the word MAS
+# M - M
+# - A -
+# S - S
 #
 
 def part_1(grid):
