@@ -3,20 +3,32 @@
 # Rope bridge and elephants
 # 
 
-def part_1():
-    return 
+def can_obtain(t, v):
+    if len(v) == 1: return t == v[0]
+    if t % v[-1] == 0 and can_obtain(t // v[-1], v[:-1]): return True
+    if t > v[-1] and can_obtain(t - v[-1], v[:-1]): return True
+    return False
+
+
+def part_1(targets, values):
+    total = 0
+    for t, v in zip(targets, values):
+        if can_obtain(t, v):
+            total += t
+    
+    return total
 
 def main():
 
-    inst = open('data/d7_elephants_t.txt', 'r', encoding='utf-8').read()
-    target, vals = [], []
+    inst = open('data/d7_elephants_r.txt', 'r', encoding='utf-8').read()
+    targets, vals = [], []
     for line in inst.splitlines():
         [t, v] = line.split(':')
-        target.append(int(t))
-        vals.append(list(map(int, [i for i in v.split()])))
+        targets.append(int(t))
+        vals.append([int(i) for i in v.split()])
     
-    print(target)
-    print(vals)
+    p1 = part_1(targets, vals)
+    print("Part 1: ", p1)
 
     return 
 
